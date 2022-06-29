@@ -1,0 +1,16 @@
+{% block body %}
+
+    <form action = "{% url 'create' %}" method = 'POST'>
+        {% csrf_token %}
+        {{form}}
+        <button type='submit'> Submit </button>
+    </from> 
+
+
+ 
+
+    <p> {{link}} </p>
+
+    
+
+{% endblock  %}

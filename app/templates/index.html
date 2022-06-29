@@ -1,0 +1,56 @@
+{% extends 'template.html' %}
+{%load static%}
+{% block body %}
+
+<table>
+    <thread>
+        <tr>
+            <th> # </th>
+            <th> id Link</th>
+            <th> clicked? </th>
+            <th> notes</th>
+            <th> delete </th>
+        </tr>
+    </thread>
+        <tbody>
+            {%for inf in info%}
+            <tr>
+                <td> {{inf.id}}</td>
+                <td>{{inf.tracker}}</td>
+                <td> {{inf.clicked}}</td>
+                <td>{{inf.notes}}</td>          
+                <td> 
+                    <a href="{% url 'delete' id=inf.id %}" > <img src="{% static 'media/delete_icon.svg' %}" height ="20"> </a> 
+                </td>     
+            </tr>
+            {%endfor%}
+        </tbody>
+
+</table>
+
+<br> <br>
+
+<table>
+    <thread>
+        <tr>
+            <th> # </th>
+            <th> ip</th>
+            <th> clicking time</th>
+            <th> incoming link</th>
+        </tr>
+    </thread>
+        <tbody>
+            {%for pin in ping%}
+            <tr>
+                <td>{{pin.id}}</td>
+                <td>{{pin.ip}}</td>
+                <td>{{pin.timee}}</td>  
+                <td>{{pin.incoming.tracker}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+
+</table>
+
+
+{% endblock %} 
